@@ -1,5 +1,7 @@
 // js/model.js
 
+
+
 async function createModel() {
     const model = tf.sequential();
     model.add(tf.layers.dense({units: 50, inputShape: [2], activation: 'relu'}));

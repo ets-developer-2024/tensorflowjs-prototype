@@ -1,5 +1,6 @@
 // js/data.js
 
+
 // Placeholder data for demonstration purposes
 const data = [
     {"date": "2023-01-01", "supplier": "Supplier A", "product": "Product 1", "price": 100},
@@ -57,5 +58,7 @@ function preprocessData(data) {
     const xs = tf.tensor2d(normalizedDates.map((d, i) => [d, suppliers[i]]));
     const ys = tf.tensor2d(normalizedPrices, [normalizedPrices.length, 1]);
 
-    return {  xs, ys, minPrice, maxPrice };
+    return { xs, ys, minPrice, maxPrice };
+
+    
 }

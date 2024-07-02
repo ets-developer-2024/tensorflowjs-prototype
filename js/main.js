@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const minDate = Math.min(...data.map(d => new Date(d.date).getTime()));
   const maxDate = Math.max(...data.map(d => new Date(d.date).getTime()));
-  const normalizeDate = date => (date - minDate) / (maxDate - minDate);
+  function normalizeDate(date) {
+    return (date - minDate) / (maxDate - minDate);
+  }
+
+  
 
   const newDate = normalizeDate(new Date('2023-01-10').getTime());
 
@@ -51,11 +55,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       const predictions = await makePrediction(model, newXs);
       const denormalizedPredictions = predictions.map(p => p * (maxPrice - minPrice) + minPrice);
       output.innerHTML = `
-                <p>Supplier A's predicted price: ${denormalizedPredictions[0]}</p>
-                <p>Supplier B's predicted price: ${denormalizedPredictions[1]}</p>
-                <p>Supplier C's predicted price: ${denormalizedPredictions[2]}</p>
-                <p>Supplier D's predicted price: ${denormalizedPredictions[3]}</p>
-            `;
+            <p>Supplier A's predicted price: ${denormalizedPredictions[0]}</p>
+            <p>Supplier B's predicted price: ${denormalizedPredictions[1]}</p>
+            <p>Supplier C's predicted price: ${denormalizedPredictions[2]}</p>
+            <p>Supplier D's predicted price: ${denormalizedPredictions[3]}</p>
+        `;
+    } else {
+      output.innerHTML = "<p>No saved model found.</p>";
     }
   });
 });
+

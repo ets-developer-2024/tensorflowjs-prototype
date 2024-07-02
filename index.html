@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Change Detection</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="js/data.js" defer></script>
     <script src="js/model.js" defer></script>
     <script src="js/main.js" defer></script>
-    <title> TensorFlow Machine Learning </title>
+    <link rel="stylesheet" href="./style.css">
+    <title>TensorFlow Machine Learning</title>
 </head>
 <body>
     <h1>Supplier Price Change Detection</h1>
+
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your query...">
+        <button id="send-btn">Send</button>
+    </div>
+
     <div id="output"></div>
     <button id="save-model">Save Model</button>
     <button id="load-model">Load Model</button>
+
+    <script type="module" src="js/chatbot.js" defer></script>
 </body>
 </html>
